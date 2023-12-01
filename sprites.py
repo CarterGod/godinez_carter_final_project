@@ -19,7 +19,7 @@ class Player(Sprite):
         Sprite.__init__(self)
         self.game = game
         # import Ramzey image as player
-        self.image = pg.image.load(os.path.join(img_folder, 'Ramzey.png')).convert()
+        self.image = pg.image.load(os.path.join(img_folder, '')).convert()
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.center = (0, 0)

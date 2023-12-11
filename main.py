@@ -7,11 +7,22 @@ Use some elements of past game
 insert some new elements not previously used
 More interactive with more aspects than just surviving
 '''
-# import modules
+
+# content from kids can code: http://kidscancode.org/blog/
+# Content from Chris Bradfield; Kids Can Code
+# KidsCanCode - Game Development with Pygame video series
+
+# import libraries and modules
 import pygame as pg
+from pygame.sprite import Sprite
+import random
+from random import randint
 import os
+# import all settings
 from settings import *
+# import all sprites
 from sprites import *
+import math
 
 vec = pg.math.Vector2
 
@@ -41,7 +52,19 @@ class Game:
         # add instances to groups
         self.all_sprites.add(self.player)
 
- 
+        for p in PLATFORM_LIST:
+            # instantiation of the Platform class
+            plat = Platform(*p)
+            self.all_sprites.add(plat)
+            self.all_platforms.add(plat)
+
+        # insert mobs into random spots on screen
+        for m in range(0,25):
+            # range of where mob can spawn and size of mobs
+            m = Mob(randint(10, WIDTH-30), randint(0, math.floor(HEIGHT-50)), 20, 20, "moving")
+            # add mobs onto screen
+            self.all_sprites.add(m)
+            self.all_mobs.add(m)
         self.run()
     
     def run(self):
@@ -87,17 +110,6 @@ class Game:
         self.screen.fill(BLACK)
         # draw all sprites
         self.all_sprites.draw(self.screen)
-        # draw hitpoints
-        self.draw_text("Hitpoints: " + str(self.player.hitpoints), 22, WHITE, WIDTH/2, HEIGHT/10)
-        # if the player falls off the screen, their hitpoints are set to 0
-        if self.player.rect.y > HEIGHT:
-            self.player.hitpoints = 0
-        # if player loses all health, display "You died" on the screen
-        if self.player.hitpoints <= 0:
-            self.draw_text("You died", 200, RED, WIDTH/2, HEIGHT/3)
-        # make sure health does not go into negatives
-        if self.player.hitpoints < 0:
-            self.player.hitpoints = 0
         # buffer - after drawing everything, flip display
         pg.display.flip()
     

@@ -53,3 +53,47 @@ class Player(Sprite):
         self.vel += self.acc
         self.pos += self.vel + 0.5 * self.acc
         self.rect.midbottom = self.pos
+
+# platforms
+class Platform(Sprite):
+    def __init__(self, x, y, w, h, category):
+        Sprite.__init__(self)
+        self.image = pg.Surface((w, h))
+        # set color of platforms to green
+        self.image.fill(GREEN)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.category = category
+        self.speed = 0
+        # set initial speed if platform is set as "moving"
+        if self.category == "moving":
+            self.speed = 5
+    def update(self):
+        # define what happens if platform has category "moving"
+        if self.category == "moving":
+            self.rect.x += self.speed
+            if self.rect.x + self.rect.w > WIDTH or self.rect.x < 0:
+                self.speed = -self.speed
+
+# mobs
+class Mob(Sprite):
+    def __init__(self, x, y, w, h, category):
+        Sprite.__init__(self)
+        # import Greg image as mob
+        self.image = pg.image.load(os.path.join(img_folder, 'Greg.png')).convert()
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        print(self.rect.center)
+        self.category = category
+        self.speed = 10
+    def update(self):
+        if self.category == "moving":
+            self.rect.x += self.speed
+            if self.rect.x + self.rect.w > WIDTH or self.rect.x < 0:
+                self.speed = -self.speed
+        # when mobs reach bottom of screen, put them back at top
+        if self.rect.y > HEIGHT:
+            self.rect.y = 0

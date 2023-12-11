@@ -107,7 +107,7 @@ class Game:
     def draw(self):
         ############ Draw ################
         # draw the background screen
-        self.screen.fill(BLACK)
+        self.screen.fill(WHITE)
         # draw all sprites
         self.all_sprites.draw(self.screen)
         # buffer - after drawing everything, flip display

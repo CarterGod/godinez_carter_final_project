@@ -18,8 +18,8 @@ class Player(Sprite):
     def __init__(self, game):
         Sprite.__init__(self)
         self.game = game
-        # import Ramzey image as player
-        self.image = pg.image.load(os.path.join(img_folder, '')).convert()
+        # import mario image as player
+        self.image = pg.image.load(os.path.join(img_folder, 'supermario.png')).convert()
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.center = (0, 0)
@@ -80,8 +80,8 @@ class Platform(Sprite):
 class Mob(Sprite):
     def __init__(self, x, y, w, h, category):
         Sprite.__init__(self)
-        # import Greg image as mob
-        self.image = pg.image.load(os.path.join(img_folder, 'Greg.png')).convert()
+        # import mario mushroom image as mob
+        self.image = pg.image.load(os.path.join(img_folder, 'mariomush.png')).convert()
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.x = x

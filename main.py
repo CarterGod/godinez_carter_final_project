@@ -59,7 +59,7 @@ class Game:
             self.all_platforms.add(plat)
 
         # insert mobs into random spots on screen
-        for m in range(0,25):
+        for m in range(0,10):
             # range of where mob can spawn and size of mobs
             m = Mob(randint(10, WIDTH-30), randint(0, math.floor(HEIGHT-50)), 20, 20, "moving")
             # add mobs onto screen

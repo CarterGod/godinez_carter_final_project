@@ -1,5 +1,4 @@
 # This file was created by Carter Godinez
-
 # game settings 
 WIDTH = 720
 HEIGHT = 720

@@ -3,7 +3,6 @@
 # import libraries and modules
 import pygame as pg
 from pygame.sprite import Sprite
-
 from pygame.math import Vector2 as vec
 import os
 # import all settings

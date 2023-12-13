@@ -23,6 +23,7 @@ from settings import *
 # import all sprites
 from sprites import *
 import math
+import time
 
 vec = pg.math.Vector2
 
@@ -52,6 +53,11 @@ class Game:
         # add instances to groups
         self.all_sprites.add(self.player)
 
+        PLATFORM_LIST = [(0, HEIGHT * 3 / 4, 75, 20,"moving"),
+                 (0, HEIGHT - 40, WIDTH, 40, "normal"),
+                 (150, 120, 100, 20, "moving"),
+                 (0, 250, 75, 20, "moving"),
+                 (175, 400, 100, 20, "moving")]
         for p in PLATFORM_LIST:
             # instantiation of the Platform class
             plat = Platform(*p)

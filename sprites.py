@@ -52,6 +52,8 @@ class Player(Sprite):
         self.vel += self.acc
         self.pos += self.vel + 0.5 * self.acc
         self.rect.midbottom = self.pos
+        # define what happens when mobs collide with player
+        mobcollide = pg.sprite.spritecollide(self, self.game.all_mobs, True)
 
 # platforms
 class Platform(Sprite):

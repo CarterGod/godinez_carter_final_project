@@ -30,7 +30,6 @@ vec = pg.math.Vector2
 # setup asset folders here - images sounds etc.
 game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, 'images')
-snd_folder = os.path.join(game_folder, 'sounds')
 
 
 class Game:

@@ -61,7 +61,7 @@ class Platform(Sprite):
         Sprite.__init__(self)
         self.image = pg.Surface((w, h))
         # set color of platforms to green
-        self.image.fill(GREEN)
+        self.image.fill(RED)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y

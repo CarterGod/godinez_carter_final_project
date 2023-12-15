@@ -32,6 +32,7 @@ game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, 'images')
 snd_folder = os.path.join(game_folder, 'sounds')
 
+
 class Game:
     def __init__(self):
         # init pygame and create a window
@@ -112,10 +113,12 @@ class Game:
         self.screen.fill(WHITE)
         # draw all sprites
         self.all_sprites.draw(self.screen)
-        start_time = time.time()
-        elapsed_time = (time.time() - start_time)
-        # display time
-        self.draw_text("Time: " + str(time.time), 22, BLACK, WIDTH/2, HEIGHT/10)
+        # set initial time to 0
+        current_time = 0
+        # count number of ticks 
+        current_time = pg.time.get_ticks()
+        # display time by dividing number of ticks by 1000
+        self.draw_text("Time: " + str(current_time/1000), 22, BLACK, WIDTH/2, HEIGHT/10)
         # buffer - after drawing everything, flip display
         pg.display.flip()
     

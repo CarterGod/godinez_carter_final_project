@@ -15,3 +15,9 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+
+PLATFORM_LIST = [(0, HEIGHT * 3 / 4, 75, 20,"moving"),
+                 (0, HEIGHT - 40, WIDTH, 40, "normal"),
+                 (150, 120, 100, 20, "moving"),
+                 (0, 250, 75, 20, "moving"),
+                 (175, 400, 100, 20, "moving")]

@@ -41,6 +41,7 @@ class Game:
         pg.display.set_caption("My Game...")
         self.clock = pg.time.Clock()
         self.running = True
+        self.start_time = pg.time.get_ticks()
     
     def new(self): 
         # create a group for all sprites
@@ -53,11 +54,6 @@ class Game:
         # add instances to groups
         self.all_sprites.add(self.player)
 
-        PLATFORM_LIST = [(0, HEIGHT * 3 / 4, 75, 20,"moving"),
-                 (0, HEIGHT - 40, WIDTH, 40, "normal"),
-                 (150, 120, 100, 20, "moving"),
-                 (0, 250, 75, 20, "moving"),
-                 (175, 400, 100, 20, "moving")]
         for p in PLATFORM_LIST:
             # instantiation of the Platform class
             plat = Platform(*p)
@@ -116,6 +112,10 @@ class Game:
         self.screen.fill(WHITE)
         # draw all sprites
         self.all_sprites.draw(self.screen)
+        start_time = time.time()
+        elapsed_time = (time.time() - start_time)
+        # display time
+        self.draw_text("Time: " + str(time.time), 22, BLACK, WIDTH/2, HEIGHT/10)
         # buffer - after drawing everything, flip display
         pg.display.flip()
     

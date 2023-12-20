@@ -112,8 +112,6 @@ class Game:
         self.screen.fill(WHITE)
         # draw all sprites
         self.all_sprites.draw(self.screen)
-        # set initial time to 0
-        current_time = 0
         # count number of ticks 
         current_time = pg.time.get_ticks()
         # display time by dividing number of ticks by 1000
